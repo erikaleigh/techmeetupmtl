@@ -1,9 +1,9 @@
-const dotenv = require('dotenv');
-const 
-// TODO: restructure to use axios or other to build string, add env variables
+const moment = require('moment');
+
+// TODO: restructure to use axios or other to build string
 const MEETUP_URL = "";
 
-const getEvents = async () => {
+const getEvents = async (apiKey) => {
   try {
     // Call meetup api
     // return events response

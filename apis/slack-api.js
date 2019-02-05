@@ -1,9 +1,7 @@
-const dotenv = require('dotenv');
-
-// TODO: restructure to use axios or other to build string, add env variables
+// TODO: restructure to use axios or other to build string
 const SLACK_URL = "";
 
-const sendEvents = async (events) => {
+const sendEvents = async (events, token) => {
   try {
     // Send
     // return events response

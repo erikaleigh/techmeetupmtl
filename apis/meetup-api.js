@@ -1,14 +1,22 @@
 const moment = require('moment');
-
-// TODO: restructure to use axios or other to build string
-const MEETUP_URL = "";
+const axios = require('axios');
+const MEETUP_BASE_URL = "https://api.meetup.com/find/upcoming_events";
+const MEETUP_TOPIC_CATEGORY = '292';
+const END_DATE_RANGE = moment().endOf('week');
 
 const getEvents = async (apiKey) => {
   try {
-    // Call meetup api
-    // return events response
+    const meetupEventsResponse = await axios.get(MEETUP_BASE_URL, {
+      params: {
+        key: apiKey,
+        topic_category: MEETUP_TOPIC_CATEGORY,
+        end_date_range: END_DATE_RANGE
+      }
+    });
+
+    return meetupEventsResponse;
   }
-  catch {
+  catch (err) {
     // TODO: Add error handling
   }
 }

@@ -6,7 +6,7 @@ const sendEvents = async (events, token) => {
     // Send
     // return events response
   }
-  catch {
+  catch (err) {
     // TODO: Add error handling
   }
 }

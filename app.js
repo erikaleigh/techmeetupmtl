@@ -7,10 +7,12 @@ const meetupApi = require('./apis/meetup-api');
 const slackApi = require('./apis/slack-api');
 
 app.get('/events', async (req, res) => {
-  const events = await meetupApi.getEvents(apiKey);
-  const slackResponse = await slackApi.sendEvents(events, token);
-
-// TODO: add error handling, add response
+  try {
+    const events = await meetupApi.getEvents(apiKey);
+    const slackResponse = await slackApi.sendEvents(events, token);
+  } catch (err) {
+    // TODO: add error handling
+  }
 });
 
 // 🛎 Testing testing 🛎
